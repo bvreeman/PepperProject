@@ -1,25 +1,39 @@
 {
   "name": "hotsauceproject",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
-    "react-scripts": "2.1.8"
-  },
+  "version": "1.0.0",
+  "description": "A website dedicated to hot sauces",
+  "main": "server.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "node server.js",
+    "client": "node scripts/start-client.js",
+    "start": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "build": "node scripts/build.js",
+    "seed": "node scripts/seedDB.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "installDeps": "yarn && cd client && yarn",
+    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bvreeman/PepperSite.git"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  "author": "Brandon Vreeman",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/bvreeman/PepperSite/issues"
+  },
+  "homepage": "https://github.com/bvreeman/PepperSite#readme",
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.10"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "nodemailer": "^5.1.1",
+    "path": "^0.12.7",
+    "react-scripts": "^2.1.8"
+  }
 }
