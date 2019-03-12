@@ -11,13 +11,18 @@ import ContactUsPage from './pages/ContactUsPage'
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-        <Route exact path='/' component={Home} />
+      <Router>
+        <div className="App">
+          <HeaderNav />
+            <Switch>
+              <Route exact path='/' component={Home} />
               <Route path='/About' component={AboutPage} />
               <Route path='/Gallery' component={Gallery} />
-              <Route path='/ContactUsPage' component={ContactUsPage} />        </header>
-      </div>
+              <Route path='/ContactUsPage' component={ContactUsPage} />
+            </Switch>
+          <Footer />
+        </div>
+      </Router>
     );
   }
 }

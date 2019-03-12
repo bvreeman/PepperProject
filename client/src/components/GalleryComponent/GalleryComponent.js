@@ -1,8 +1,6 @@
 import React from 'react';
 import './GalleryComponent.css'
 // import ImageUpload from '../ImageUpload'
-import firebase from 'firebase/app';
-import "firebase/database";
 import ReactModal from 'react-modal'
 // ReactModal.setAppElement('#enterAnIdHere')
 class GalleryComponent extends React.PureComponent {
@@ -17,28 +15,28 @@ class GalleryComponent extends React.PureComponent {
         this.handleCloseModal = this.handleCloseModal.bind(this);
 }
 
-        getFirebaseData = () => {
-                // console.log('props here?', this.props)
+        // getFirebaseData = () => {
+        //         // console.log('props here?', this.props)
 
-                const database = firebase.database();
-                const images = [];
-                database.ref('/ImageData').once('value').then((snapshot) => {
-                        if (snapshot.val() !== null) {                        
-                        const imageObject = snapshot.val();
-                        const keys = Object.keys(imageObject);
-                        // console.log(keys)
-                        keys.forEach(key => images.push(imageObject[key]))
-                        } else {
-                                console.log("No Images to display")
-                        } 
-                }).then(() => {
-                        this.setState({ images })
-                })
-        }
+        //         const database = firebase.database();
+        //         const images = [];
+        //         database.ref('/ImageData').once('value').then((snapshot) => {
+        //                 if (snapshot.val() !== null) {                        
+        //                 const imageObject = snapshot.val();
+        //                 const keys = Object.keys(imageObject);
+        //                 // console.log(keys)
+        //                 keys.forEach(key => images.push(imageObject[key]))
+        //                 } else {
+        //                         console.log("No Images to display")
+        //                 } 
+        //         }).then(() => {
+        //                 this.setState({ images })
+        //         })
+        // }
 
-componentWillMount() {
-        this.getFirebaseData();
-}
+// componentWillMount() {
+//         this.getFirebaseData();
+// }
 
 handleOpenModal (index, e) {
         this.setState({

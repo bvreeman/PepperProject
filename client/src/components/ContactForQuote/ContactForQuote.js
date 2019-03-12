@@ -3,10 +3,7 @@ import './ContactForQuote.css';
 import ContactFormSubmit from '../../components/ContactFormSubmit';
 // import ReCAPTCHAComponent from '../../components/ReCAPTCHAComponent';
 import axios from 'axios';
-import firebase from 'firebase/app';
-import "firebase/database";
 
-import phone from '../../images/phone.png'
 // import { networkInterfaces } from 'os';
 
 
@@ -36,11 +33,11 @@ class ContactForQuote extends React.PureComponent {
         console.log('after', this.state.reCAPTCHAvalue)
     }
 
-    databasePush = () => {
-        let str = this.state.FullName.replace(/\s/g, '')
-        let itemsRef = firebase.database().ref(`${str}ContactForm/`)
-        itemsRef.push(this.state);
-    }
+    // databasePush = () => {
+    //     let str = this.state.FullName.replace(/\s/g, '')
+    //     let itemsRef = firebase.database().ref(`${str}ContactForm/`)
+    //     itemsRef.push(this.state);
+    // }
 
     handleSubmit = (e) => {
         e.preventDefault()
@@ -67,7 +64,7 @@ class ContactForQuote extends React.PureComponent {
                }
             ).then(() => {
                 this.setState({submitted: true });
-                this.databasePush();
+                // this.databasePush();
             })
         } else {
             alert('Please fill out the remaining required fields')
@@ -131,7 +128,7 @@ class ContactForQuote extends React.PureComponent {
                         <div className='col-md-5 col-xs-12 phoneDiv'>
                             <h3 className='callUsHeading'>Give us a <span>Call</span></h3>
                             <h1 className='phoneNumber'>507-354-3276</h1>
-                            <img className='phoneIcon' src={phone} alt="Phone Icon"/>
+                            {/* <img className='phoneIcon' src={phone} alt="Phone Icon"/> */}
                         </div>
                     </div>
                 </div>
