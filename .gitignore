@@ -19,9 +19,7 @@
 /client/src/.env
 ./client/.env
 *.env
-./config
 /config
-*config
 *server.key
 *server.pass.key
 ./server.key
